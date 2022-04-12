@@ -10,6 +10,13 @@
 						"type": "LinkedServiceReference"
 					},
 					"name": "source1"
+				},
+				{
+					"linkedService": {
+						"referenceName": "ls_adlsgen2",
+						"type": "LinkedServiceReference"
+					},
+					"name": "Refdata"
 				}
 			],
 			"sinks": [],
@@ -25,10 +32,22 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'delimited',",
+				"     fileSystem: ($dfp_sourcecontainer),",
+				"     folderPath: ($dfp_sourcefolder),",
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> source1"
+				"     columnNamesAsHeader: false) ~> source1",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: ($dfp_sinkcontainer),",
+				"     folderPath: ($dfp_sinkfolder),",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: false) ~> Refdata"
 			]
 		}
 	}
