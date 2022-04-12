@@ -1,0 +1,25 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"parameters{",
+				"     dfp_sourcecontainer as string (\"global\"),",
+				"     dfp_sourcefolder as string (\"raw/cust/2022/01/20\"),",
+				"     dfp_sinkcontainer as string (\"global\"),",
+				"     dfp_sinkfolder as string (\"working/cust\")",
+				"}",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1"
+			]
+		}
+	}
+}
