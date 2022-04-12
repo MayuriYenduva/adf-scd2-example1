@@ -37,7 +37,7 @@
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> source1",
+				"     columnNamesAsHeader: true) ~> source1",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
@@ -47,7 +47,7 @@
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> Refdata"
+				"     columnNamesAsHeader: true) ~> Refdata"
 			]
 		}
 	}
