@@ -20,7 +20,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "insertrows"
+				}
+			],
 			"scriptLines": [
 				"parameters{",
 				"     dfp_sourcecontainer as string (\"global\"),",
@@ -47,7 +51,9 @@
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: true) ~> Refdata"
+				"     columnNamesAsHeader: true) ~> Refdata",
+				"Refdata split(ERROR_FUNCTION(''),",
+				"     disjoint: true) ~> insertrows@(Insertrow, )"
 			]
 		}
 	}
